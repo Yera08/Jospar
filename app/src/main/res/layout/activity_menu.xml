@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/yellow2"
+    tools:context=".Activities.MenuActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:orientation="vertical"
+        android:background="@color/brown"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/nameUserET"
+            android:layout_width="300dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:hint="@string/nameUser"
+            android:maxLength="12"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/goalsOfTenYearBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_above="@+id/goalsOfFiveYearBtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/brown_jospar"
+        android:text="@string/goalsOf10Year"
+        android:textSize="18sp"
+        app:cornerRadius="4dp" />
+
+    <Button
+        android:id="@+id/goalsOfFiveYearBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_above="@+id/goalsOfOneYearBtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/brown_jospar"
+        android:onClick="goalsOfFiveYearBtn"
+        android:text="@string/goalsOf5Year"
+        android:textSize="18sp"
+        app:cornerRadius="4dp" />
+
+    <Button
+        android:id="@+id/goalsOfOneYearBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_above="@+id/fourMonthPlanBtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/brown_jospar"
+        android:onClick="goalsOfOneYearBtn"
+        android:text="@string/goalsOf1Year"
+        android:textSize="18sp"
+        app:cornerRadius="4dp" />
+
+    <Button
+        android:id="@+id/fourMonthPlanBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_above="@+id/developerBtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="100dp"
+        android:backgroundTint="@color/brown_jospar"
+        android:text="@string/mainInMonth2"
+        android:textSize="18sp"
+        app:cornerRadius="4dp" />
+
+    <Button
+        android:id="@+id/developerBtn"
+        android:onClick="developerBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_above="@+id/linerMenu"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/brown_jospar"
+        android:text="@string/developer"
+        android:textSize="16sp"
+        app:cornerRadius="4dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linerMenu"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_above="@+id/bottomNav"
+        android:layout_marginBottom="13dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnLangKk"
+            android:layout_width="140dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="6dp"
+            android:backgroundTint="@color/brown_jospar"
+            android:text="@string/langKaz"
+            android:textSize="16sp"
+            app:cornerRadius="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnLangRu"
+            app:layout_constraintEnd_toStartOf="@+id/btnLangRu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/btnLangRu"
+            android:layout_width="140dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="50dp"
+            android:backgroundTint="@color/brown_jospar"
+            android:text="@string/langRus"
+            android:textSize="16sp"
+            app:cornerRadius="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnLangKk"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/yellow"
+        app:menu="@menu/item" />
+</RelativeLayout>

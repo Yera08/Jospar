@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Jospar</string>
+    <string name="mainInMonth">Главное на месяц:</string>
+    <string name="mainDay">Главное на сегодня:</string>
+    <string name="secondary">Второстепенные дела:</string>
+    <string name="menu">Меню</string>
+    <string name="mainAct">На сегодня</string>
+    <string name="notes">Заметки</string>
+    <string name="mvp">MVP</string>
+    <string name="goalsOf1Year">Цели на год</string>
+    <string name="goalsOf5Year">Цели на 5 лет</string>
+    <string name="goalsOf10Year">Цели на 10 лет</string>
+    <string name="mainInMonth2">Главное на месяц</string>
+    <string name="fourMonthPlan">План на 120 дней</string>
+    <string name="calendar">Календарь</string>
+    <string name="changeLanguage">Изменить язык</string>
+    <string name="developer">Разработчик приложения</string>
+    <string name="mainDayToast">Не более 3 целей!!!</string>
+    <string name="secondaryToast">Не более 5 целей!!!</string>
+    <string name="fourMonthToast">Не более 12 целей!!!</string>
+    <string name="toDoToast">Не более 15 заметок!!!</string>
+    <string name="twelveToast">Не более 15 целей!!!</string>
+    <string name="addNote">Добавить</string>
+    <string name="langSelect">Выбор языка</string>
+    <string name="saveNote">Сохранить</string>
+    <string name="addNoteHint">Напишите цель</string>
+    <string name="langKaz">Казахский</string>
+    <string name="langRus">Русский</string>
+    <string name="nameUser">Ваше имя</string>
+    <string name="mainThreegoals">Главные 3 цели</string>
+    <string name="otherTargets">Остальные цели</string>
+    <string name="mainMonthGoals">Начальные 3 цели будут выведены в главном экране</string>
+</resources>

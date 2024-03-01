@@ -1,0 +1,197 @@
+<html>
+<head>
+<title>MenuActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+.s4 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MenuActivity.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">kz.yerzhan.jospar.Activities</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">android.content.Intent</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.content.SharedPreferences</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.content.pm.PackageManager</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.net.Uri</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.os.Bundle</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.view.View</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.Button</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.EditText</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">com.google.android.material.bottomnavigation.BottomNavigationView</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">kz.yerzhan.jospar.SaveLang.AppCompat</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">kz.yerzhan.jospar.SaveLang.LanguageManager</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">kz.yerzhan.jospar.MenuActivities.FiveYearGoalsActivity</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">kz.yerzhan.jospar.MenuActivities.FourMonthPlanActivity</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">kz.yerzhan.jospar.MenuActivities.OneYearGoalsActivity</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">kz.yerzhan.jospar.MenuActivities.TenYearGoalsActivity</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">kz.yerzhan.jospar.R</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">MenuActivity </span><span class="s0">extends </span><span class="s1">AppCompat {</span>
+    <span class="s0">private </span><span class="s1">Button goalsOfTenYearBtn</span><span class="s0">, </span><span class="s1">goalsOfFiveYearBtn</span><span class="s0">, </span><span class="s1">goalsOfOneYearBtn</span><span class="s0">, </span><span class="s1">fourMonthPlanBtn</span><span class="s0">, </span><span class="s1">btnLangKk</span><span class="s0">, </span><span class="s1">btnLangRu</span><span class="s0">, </span><span class="s1">developerBtn</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">EditText nameUserET</span><span class="s0">;</span>
+    <span class="s0">private static final </span><span class="s1">String PREFS_FILE = </span><span class="s2">&quot;Account&quot;</span><span class="s0">;</span>
+    <span class="s0">private static final </span><span class="s1">String PREFS_NAME = </span><span class="s2">&quot;Name&quot;</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">SharedPreferences sharedPref</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">SharedPreferences.Editor editor</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">BottomNavigationView bottomNavigationView</span><span class="s0">;</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span><span class="s0">;</span>
+        <span class="s1">setContentView(R.layout.activity_menu)</span><span class="s0">;</span>
+
+        <span class="s1">goalsOfTenYearBtn = findViewById(R.id.goalsOfTenYearBtn)</span><span class="s0">;</span>
+        <span class="s1">goalsOfFiveYearBtn = findViewById(R.id.goalsOfFiveYearBtn)</span><span class="s0">;</span>
+        <span class="s1">goalsOfOneYearBtn = findViewById(R.id.goalsOfOneYearBtn)</span><span class="s0">;</span>
+        <span class="s1">fourMonthPlanBtn = findViewById(R.id.fourMonthPlanBtn)</span><span class="s0">;</span>
+        <span class="s1">nameUserET = findViewById(R.id.nameUserET)</span><span class="s0">;</span>
+        <span class="s1">bottomNavigationView = findViewById(R.id.bottomNav)</span><span class="s0">;</span>
+        <span class="s1">btnLangKk = findViewById(R.id.btnLangKk)</span><span class="s0">;</span>
+        <span class="s1">btnLangRu = findViewById(R.id.btnLangRu)</span><span class="s0">;</span>
+        <span class="s1">developerBtn = findViewById(R.id.developerBtn)</span><span class="s0">;</span>
+
+        <span class="s1">LanguageManager languageManager = </span><span class="s0">new </span><span class="s1">LanguageManager(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">sharedPref = getSharedPreferences(PREFS_FILE</span><span class="s0">, </span><span class="s1">MODE_PRIVATE)</span><span class="s0">;</span>
+        <span class="s1">String name = sharedPref.getString(PREFS_NAME</span><span class="s0">, </span><span class="s2">&quot;User&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">nameUserET.setText(name)</span><span class="s0">;</span>
+
+        <span class="s1">btnLangKk.setOnClickListener(view -&gt; {</span>
+            <span class="s1">languageManager.updateResource(</span><span class="s2">&quot;kk&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">recreate()</span><span class="s0">;</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+        <span class="s1">btnLangRu.setOnClickListener(view -&gt; {</span>
+            <span class="s1">languageManager.updateResource(</span><span class="s2">&quot;ru&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">recreate()</span><span class="s0">;</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+        <span class="s1">bottomNavigationView.setSelectedItemId(R.id.menu)</span><span class="s0">;</span>
+        <span class="s1">bottomNavigationView.setOnItemSelectedListener(item -&gt; {</span>
+            <span class="s0">int </span><span class="s1">itemID = item.getItemId()</span><span class="s0">;</span>
+            <span class="s0">if </span><span class="s1">(itemID == R.id.menu) {</span>
+                <span class="s0">return true;</span>
+            <span class="s1">} </span><span class="s0">else if </span><span class="s1">(itemID == R.id.main) {</span>
+                <span class="s1">startActivity(</span><span class="s0">new </span><span class="s1">Intent(getApplicationContext()</span><span class="s0">, </span><span class="s1">MainActivity.</span><span class="s0">class</span><span class="s1">))</span><span class="s0">;</span>
+                <span class="s1">overridePendingTransition(R.anim.slide_left</span><span class="s0">, </span><span class="s1">R.anim.slide_right)</span><span class="s0">;</span>
+                <span class="s0">return true;</span>
+            <span class="s1">} </span><span class="s0">else if </span><span class="s1">(itemID == R.id.note) {</span>
+                <span class="s1">startActivity(</span><span class="s0">new </span><span class="s1">Intent(getApplicationContext()</span><span class="s0">, </span><span class="s1">ToDoActivity.</span><span class="s0">class</span><span class="s1">))</span><span class="s0">;</span>
+                <span class="s1">overridePendingTransition(R.anim.slide_left</span><span class="s0">, </span><span class="s1">R.anim.slide_right)</span><span class="s0">;</span>
+                <span class="s0">return true;</span>
+            <span class="s1">}</span>
+            <span class="s0">return false;</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+        <span class="s1">goalsOfTenYearBtn.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View view) {</span>
+                <span class="s1">startActivity(</span><span class="s0">new </span><span class="s1">Intent(getApplicationContext()</span><span class="s0">, </span><span class="s1">TenYearGoalsActivity.</span><span class="s0">class</span><span class="s1">))</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+        <span class="s1">goalsOfFiveYearBtn.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View view) {</span>
+                <span class="s1">startActivity(</span><span class="s0">new </span><span class="s1">Intent(getApplicationContext()</span><span class="s0">, </span><span class="s1">FiveYearGoalsActivity.</span><span class="s0">class</span><span class="s1">))</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">goalsOfOneYearBtn.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View view) {</span>
+                <span class="s1">startActivity(</span><span class="s0">new </span><span class="s1">Intent(getApplicationContext()</span><span class="s0">, </span><span class="s1">OneYearGoalsActivity.</span><span class="s0">class</span><span class="s1">))</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">fourMonthPlanBtn.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View view) {</span>
+                <span class="s1">startActivity(</span><span class="s0">new </span><span class="s1">Intent(getApplicationContext()</span><span class="s0">, </span><span class="s1">FourMonthPlanActivity.</span><span class="s0">class</span><span class="s1">))</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+        <span class="s1">developerBtn.setOnClickListener(view -&gt; {</span>
+            <span class="s1">getTelegramDev(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+
+    <span class="s1">}</span>
+
+    <span class="s0">private void </span><span class="s1">getTelegramDev(MenuActivity menuActivity) {</span>
+        <span class="s1">Intent intent</span><span class="s0">;</span>
+
+        <span class="s0">try </span><span class="s1">{</span>
+            <span class="s0">try </span><span class="s1">{</span>
+                <span class="s1">menuActivity.getPackageManager().getPackageInfo(</span><span class="s2">&quot;org.telegram.messenger&quot;</span><span class="s0">, </span><span class="s3">0</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">} </span><span class="s0">catch </span><span class="s1">(PackageManager.NameNotFoundException e) {</span>
+                <span class="s1">menuActivity.getPackageManager().getPackageInfo(</span><span class="s2">&quot;org.thunderdog.challegram&quot;</span><span class="s0">, </span><span class="s3">0</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+            <span class="s1">intent = </span><span class="s0">new </span><span class="s1">Intent(Intent.ACTION_VIEW</span><span class="s0">, </span><span class="s1">Uri.parse(</span><span class="s2">&quot;tg://resolve?domain=dilshod_software&quot;</span><span class="s1">))</span><span class="s0">;</span>
+            <span class="s1">startActivity(intent)</span><span class="s0">;</span>
+
+        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(PackageManager.NameNotFoundException e) {</span>
+            <span class="s1">intent = </span><span class="s0">new </span><span class="s1">Intent(Intent.ACTION_VIEW</span><span class="s0">, </span><span class="s1">Uri.parse(</span><span class="s2">&quot;https://t.me/+77779177223&quot;</span><span class="s1">))</span><span class="s0">;</span>
+            <span class="s1">startActivity(intent)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">protected void </span><span class="s1">onPause() {</span>
+        <span class="s0">super</span><span class="s1">.onPause()</span><span class="s0">;</span>
+        <span class="s1">String name = nameUserET.getText().toString()</span><span class="s0">;</span>
+        <span class="s4">// Сохранение в настройках</span>
+        <span class="s1">editor = sharedPref.edit()</span><span class="s0">;</span>
+        <span class="s1">editor.putString(PREFS_NAME</span><span class="s0">, </span><span class="s1">name)</span><span class="s0">;</span>
+        <span class="s1">editor.apply()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+<span class="s1">}</span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</body>
+</html>

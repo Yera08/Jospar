@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/yellow2"
+    tools:context=".MenuActivities.FourMonthPlanActivity">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="8dp"
+      android:padding="10dp"
+      android:gravity="center|top"
+      android:orientation="vertical">
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginEnd="90dp"
+        android:text="@string/fourMonthPlan"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/brown"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="36dp"
+        android:text="@string/mainMonthGoals"
+        android:textAlignment="center"
+        android:textColor="@color/brown" />
+
+    <ListView
+        android:id="@+id/mainMonthLV"
+        android:layout_width="376dp"
+        android:layout_height="140dp"
+        android:background="@drawable/custom_shape_brown"
+        android:padding="4dp"
+        android:dividerHeight="4dp"/>
+
+    <ListView
+        android:id="@+id/fourMonthPlanLV"
+        android:layout_width="376dp"
+        android:layout_height="360dp"
+        android:layout_marginTop="10dp"
+        android:dividerHeight="4dp"
+        android:padding="4dp"
+        android:background="@drawable/custom_shape_yellow" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="1dp"
+          android:text="@string/mainThreegoals"
+          app:layout_constraintBottom_toTopOf="@+id/mainMonthAddNoteClick"
+          app:layout_constraintEnd_toEndOf="@+id/mainMonthAddNoteClick"
+          app:layout_constraintStart_toStartOf="@+id/mainMonthAddNoteClick"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintVertical_bias="1.0"
+          tools:ignore="MissingConstraints" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="1dp"
+          android:text="@string/otherTargets"
+          app:layout_constraintBottom_toTopOf="@+id/fourMonthAddNoteClick"
+          app:layout_constraintEnd_toEndOf="@+id/fourMonthAddNoteClick"
+          app:layout_constraintStart_toStartOf="@+id/fourMonthAddNoteClick"
+          app:layout_constraintTop_toTopOf="parent"
+          tools:ignore="MissingConstraints" />
+
+      <Button
+          android:id="@+id/mainMonthAddNoteClick"
+          android:layout_width="wrap_content"
+          android:layout_height="40dp"
+          android:layout_marginStart="80dp"
+          android:layout_marginEnd="25dp"
+          android:backgroundTint="@color/brown_jospar"
+          android:onClick="addNoteClickMainDay"
+          android:text="@string/addNote"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toStartOf="@+id/fourMonthAddNoteClick"
+          app:layout_constraintStart_toStartOf="parent"
+          tools:ignore="MissingConstraints" />
+
+      <Button
+          android:id="@+id/fourMonthAddNoteClick"
+          android:layout_width="wrap_content"
+          android:layout_height="40dp"
+          android:layout_marginStart="25dp"
+          android:layout_marginEnd="80dp"
+          android:backgroundTint="@color/brown_jospar"
+          android:onClick="addNoteClickMainDay"
+          android:text="@string/addNote"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toEndOf="@+id/mainMonthAddNoteClick"
+          tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </LinearLayout>
+
+  <com.google.android.material.bottomnavigation.BottomNavigationView
+      android:id="@+id/bottomNav"
+      android:layout_width="wrap_content"
+      android:layout_height="70dp"
+      android:layout_alignParentBottom="true"
+      android:background="@color/yellow"
+      app:menu="@menu/item" />
+
+
+</RelativeLayout>

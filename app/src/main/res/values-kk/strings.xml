@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Jospar</string>
+    <string name="mainInMonth">Осы айда ең маңызды:</string>
+    <string name="mainDay">Бүгінге ең маңызды:</string>
+    <string name="secondary">Кезекті:</string>
+    <string name="menu">Мәзір</string>
+    <string name="mainAct">Бүгіндікке</string>
+    <string name="notes">Ескертпелер</string>
+    <string name="mvp">MVP</string>
+    <string name="goalsOf1Year">1 жылға мақсат</string>
+    <string name="goalsOf5Year">5 жылға мақсат</string>
+    <string name="goalsOf10Year">10 жылға мақсат</string>
+    <string name="mainInMonth2">Осы айда маңыздысы</string>
+    <string name="fourMonthPlan">120 күнге план</string>
+    <string name="calendar">Күнтізбе</string>
+    <string name="changeLanguage">Тілді өзгерту</string>
+    <string name="developer">Қосымшаны әзірлеуші</string>
+    <string name="mainDayToast">Тек қана 3 мақсат!!!</string>
+    <string name="secondaryToast">Тек қана 5 мақсат!!!</string>
+    <string name="fourMonthToast">Тек қана 12 мақсат!!!</string>
+    <string name="toDoToast">Тек қана 15 ескертпе!!!</string>
+    <string name="twelveToast">Тек қана 12 мақсат!!!</string>
+    <string name="addNote">Қосу</string>
+    <string name="langSelect">Тілді таңдау</string>
+    <string name="saveNote">Сақтау</string>
+    <string name="addNoteHint">Мақсатты жазыңыз</string>
+    <string name="langKaz">Қазақша</string>
+    <string name="langRus">Орысша</string>
+    <string name="nameUser">Есіміңіз</string>
+    <string name="mainThreegoals">Басты 3 мақсат</string>
+    <string name="otherTargets">Кейінгі мақсаттар</string>
+    <string name="mainMonthGoals">Алғашқы 3 мақсат негізгі бетте көрсетіледі</string>
+</resources>

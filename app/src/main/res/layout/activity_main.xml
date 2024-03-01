@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/yellow2"
+    tools:context=".Activities.MainActivity">
+    <LinearLayout
+        android:id="@+id/linerMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center|top"
+        android:layout_marginTop="6dp">
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:text="@string/mainInMonth"
+                android:textAlignment="viewStart"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/mainMonthListView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ListView
+                android:id="@+id/mainMonthListView"
+                android:layout_width="376dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="4dp"
+                android:padding="6dp"
+                android:dividerHeight="4dp"
+                android:background="@drawable/custom_shape_brown"
+                app:layout_constraintBottom_toTopOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:text="@string/mainDay"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/mainDayListView"
+                app:layout_constraintTop_toBottomOf="@+id/mainMonthListView" />
+
+        <ListView
+            android:id="@+id/mainDayListView"
+            android:layout_width="376dp"
+            android:layout_height="140dp"
+            android:layout_marginBottom="-4dp"
+            android:layout_marginTop="2dp"
+            android:padding="6dp"
+            android:dividerHeight="4dp"
+            android:background="@drawable/custom_shape_brown"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="4dp"
+                android:backgroundTint="@color/brown_jospar"
+                android:onClick="addNoteClickMainDay"
+            android:layout_marginTop="4dp"
+                android:text="@string/addNote"
+                app:layout_constraintBottom_toTopOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/mainDayListView" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:text="@string/secondary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/secondaryListView"
+            app:layout_constraintTop_toBottomOf="@+id/button" />
+
+        <ListView
+                android:id="@+id/secondaryListView"
+                android:layout_width="376dp"
+                android:layout_height="208dp"
+                android:padding="6dp"
+                android:dividerHeight="4dp"
+                android:background="@drawable/custom_shape_brown"
+                app:layout_constraintBottom_toTopOf="@+id/button2"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/brown_jospar"
+                android:onClick="addNoteClickSecond"
+                android:text="@string/addNote"
+                app:layout_constraintTop_toBottomOf="@+id/secondaryListView" />
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/yellow"
+        app:menu="@menu/item" />
+
+
+</RelativeLayout>
